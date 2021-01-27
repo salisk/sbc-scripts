@@ -52,7 +52,7 @@ services:
       - DELUGE_LOGLEVEL=error #optional
     volumes:
       - /mnt/usb2/config/deluge:/config
-      - /mnt/usb2/torrents:/downloads
+      - /mnt/usb2/torrents:/data/torrents
     ports:
       - 8112:8112
     restart: unless-stopped
