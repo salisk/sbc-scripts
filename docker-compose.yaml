@@ -1,0 +1,139 @@
+services:
+  plex:
+    image: ghcr.io/linuxserver/plex
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vilnius
+      - VERSION=docker
+      - PLEX_CLAIM= #optional
+    volumes:
+<<<<<<< HEAD:compose.yaml
+<<<<<<< HEAD
+      - /mnt/usb2/config/plex:/config
+      - /mnt/usb2/media:/media
+=======
+      - /mnt/usb2/cache:/config
+      - /mnt/usb2:/media
+>>>>>>> dc06e52... Add compose file
+=======
+      - /mnt/usb2/config/plex:/config
+      - /mnt/usb2/media:/media
+>>>>>>> 035fdf0... Adjustments:docker-compose.yaml
+    restart: unless-stopped
+
+  radarr:
+    image: ghcr.io/linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vilnius
+    volumes:
+<<<<<<< HEAD:compose.yaml
+<<<<<<< HEAD
+      - /mnt/usb2/config/radarr:/config
+      - /mnt/usb2:/data
+=======
+      - /mnt/usb2/cache/radarr:/config
+      - /mnt/usb2/Movies:/movies
+      - /mnt/usb2/Downloads:/downloads
+>>>>>>> dc06e52... Add compose file
+=======
+      - /mnt/usb2/config/radarr:/config
+      - /mnt/usb2:/data
+>>>>>>> 035fdf0... Adjustments:docker-compose.yaml
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vilnius
+    volumes:
+<<<<<<< HEAD:compose.yaml
+<<<<<<< HEAD
+      - /mnt/usb2/config/sonarr:/config
+      - /mnt/usb2:/data
+=======
+      - /mnt/usb2/cache/sonarr:/config
+      - /mnt/usb2/Tv:/tv
+      - /mnt/usb2/Downloads:/downloads
+>>>>>>> dc06e52... Add compose file
+=======
+      - /mnt/usb2/config/sonarr:/config
+      - /mnt/usb2:/data
+>>>>>>> 035fdf0... Adjustments:docker-compose.yaml
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  deluge:
+    image: ghcr.io/linuxserver/deluge
+    container_name: deluge
+<<<<<<< HEAD:compose.yaml
+<<<<<<< HEAD
+=======
+    network_mode: host
+>>>>>>> dc06e52... Add compose file
+=======
+>>>>>>> 035fdf0... Adjustments:docker-compose.yaml
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vilnius
+      - DELUGE_LOGLEVEL=error #optional
+    volumes:
+<<<<<<< HEAD:compose.yaml
+<<<<<<< HEAD
+=======
+>>>>>>> 035fdf0... Adjustments:docker-compose.yaml
+      - /mnt/usb2/config/deluge:/config
+      - /mnt/usb2/torrents:/downloads
+    ports:
+      - 8112:8112
+<<<<<<< HEAD:compose.yaml
+=======
+      - /mnt/usb2/cache/deluge:/config
+      - /mnt/usb2/Downloads:/downloads
+>>>>>>> dc06e52... Add compose file
+=======
+>>>>>>> 035fdf0... Adjustments:docker-compose.yaml
+    restart: unless-stopped
+
+  jackett:
+    image: ghcr.io/linuxserver/jackett
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vilnius
+      - AUTO_UPDATE=true #optional
+      # - RUN_OPTS=<run options here> #optional
+    volumes:
+<<<<<<< HEAD:compose.yaml
+<<<<<<< HEAD
+      - /mnt/usb2/config/jackett:/config
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+=======
+      - /mnt/usb2/cache/jackett:/config
+      - /mnt/usb2/Downloads:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+    
+>>>>>>> dc06e52... Add compose file
+=======
+      - /mnt/usb2/config/jackett:/config
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+>>>>>>> 035fdf0... Adjustments:docker-compose.yaml
